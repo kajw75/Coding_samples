@@ -38,16 +38,18 @@ for c in data:
 # Separate line values based on the space
         num = c.split(" ")
 # Calculate the 1st 2 values multiples and cast the string to integer
-        result = result + int(num[0])
-        result2 = result2 + int(num[1])
-# Place the calculation value into end list, if value is below the lines 3rd value
-        if(result < int(num[2])):
-            end_result.append(result)
-        if(result2 < int(num[2])):
-            end_result.append(result2)
+        while(result < int(num[2])):
+            result = result + int(num[0])
+# Place the calculation value into end list, if 1st calculation value is below the lines 3rd value
+            if(result < int(num[2])):
+                end_result.append(result)
+        while(result2 < int(num[2])):
+            result2 = result2 + int(num[1])
+# Place the calculation value into end list, if 2nd calculation value is below the lines 3rd value
+            if(result2 < int(num[2])):
+                end_result.append(result2)
 # Reorder the end list to acending order
         end_result.sort()
-
 # Remove the list brackets & commas and cast the integer value as string using space as separator
     str_list = " ".join(map(str,end_result))
 # Display the end string on screen
